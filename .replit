@@ -22,13 +22,12 @@ args = "Start application"
 name = "Start application"
 author = "agent"
 
+[workflows.workflow.metadata]
+outputType = "vnc"
+
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "python main.py"
-waitForPort = 5000
-
-[workflows.workflow.metadata]
-outputType = "webview"
+args = "PYTHONPATH=/nix/store/izkldz9a5b7kbdlgfm1n7zrmmp6ihs1m-python3.12-tkinter-3.12.11/lib/python3.12/site-packages:$PYTHONPATH python turtle-main.py"
 
 [[ports]]
 localPort = 5000
